@@ -1,0 +1,95 @@
+
+
+<link href="resources/css/registration.css" rel="stylesheet">
+   
+  
+
+  <header class="heading"> Registration-Form</header><hr></hr>
+
+<form>
+<div>
+ <span style="color:red;">{{error.errorMessage}}</span>
+	 <!--- For Name---->
+         <div class="col-sm-12">
+             <div class="row">
+			     <div class="col-xs-4">
+ 					<label class="firstname">First Name :</label> </div>
+		        	 <div class="col-xs-8">
+		             <input type="text" ng-model="user.firstname" placeholder="Enter your First Name" class="form-control">
+            	 </div>
+		      </div>
+		 </div>
+		 
+		  <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+                     <label class="lastname">Last Name :</label></div>
+				<div class ="col-xs-8">	 
+		             <input type="text" ng-model="user.lastname" placeholder="Enter your Last Name" class="form-control">
+                </div>
+		     </div>
+		 </div>
+		 
+		  <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="mail" >Email :</label></div>
+			     <div class="col-xs-8"	>	 
+			          <input type="email" ng-model="user.email" placeholder="Enter your email" class="form-control" >
+		         </div>
+		     </div>
+		 </div>
+		 
+		 <div class="col-sm-12">
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="pass">Password :</label></div>
+				  <div class="col-xs-8">
+			             <input type="password" ng-model="user.password" placeholder="Enter your Password" class="form-control">
+				 </div>
+          </div>
+		  </div>
+		
+		  <div class="col-sm-12">
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="pno">Phone No. :</label></div>
+				  <div class="col-xs-8">
+			             <input type="text" ng-model="user.phonenumber" placeholder="Enter your Phone No." class="form-control">
+				 </div>
+          </div>
+		  </div>
+		  
+		   <div class="col-sm-12">
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="role">User Role :</label></div>
+				  <div class="col-xs-8">
+			           <select ng-model="user.role" class="form-control">
+			           	<option value="STUDENT">Student</option>
+			           </select>
+				 </div>
+          </div>
+		  </div>
+		 
+		   <div class="col-sm-12">
+		         <div class="sbutton btn btn-warning" ng-click="registration(user)">Register</div>
+		   </div>
+		   
+		 </div>
+		</form>
+	
+
+	 
+<!-- Enter email:<input type="email" ng-model="user.email"><br>
+Enter password:<input type="password" ng-model="user.password"><br>
+Enter Firstname:<input type="text" ng-model="user.firstname"><br>
+Enter lastname:<input type="text" ng-model="user.lastname"><br>
+Enter phonenumber:<input type="text" ng-model="user.phonenumber"><br>
+Select Role:<select ng-model="user.role">
+<option value="STUDENT">Student
+<option value="EMPLOYEE">Employee
+<option value="ALUMNI">Alumni
+</select>
+<button ng-click="registration(user)" class="btn btn-info">Register</button> -->
+

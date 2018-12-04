@@ -1,0 +1,7 @@
+<link href="resources/css/panel.css" rel="stylesheet">
+
+
+<div class="panelcontainer fcolor" style="align:center;"><b>The Job titled "{{jobNotification.jobAppliedFor.jobTitle}}"</b> is<span ng-show="jobNotification.jobStatus='N' "> <b>Not Approved</b></span>
+<span ng-show="jobNotification.jobStatus='A' "><b>Approved</b></span>
+
+<span ng-show="jobNotification.jobStatus='N' && jobNotification.rejectionReason!=null">for the reason <b>"{{jobNotification.rejectionReason}}"</b></span>

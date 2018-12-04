@@ -1,0 +1,25 @@
+
+<link href="resources/css/panel.css" rel="stylesheet">
+<div>
+
+	<div class="panel panel-info panelcontainer">
+		<div class="panel-heading">
+			<b>List of Blog's Approved</b>
+		</div>
+		<div class="panel-body fcolor">
+		<b ng-show="blogs.length==0">No Approved blogs</b>
+		<ul style="list-style:none;">
+		<li ng-repeat="blog in  blogs">
+		<a href="#/getblogapproved/{{blog.id}}"><b>Blog Title: </b><span class="link">{{blog.blogTitle}}</span><br></a>
+		<b>Posted On:</b>{{blog.postedOn | date:'dd-MM-yyyy'}}<br>
+		<b>Posted By:</b>{{blog.postedBy.firstname}}&nbsp;{{blog.postedBy.lastname}}<!-- firstname and lastname of the user who posted the blog -->
+		<br>
+		<a href="#/getblogapproved/{{blog.id}}" class="link">View More details</a>
+		<hr>
+		</li>
+		</ul>
+		</div>
+	</div>
+</div>
+
+

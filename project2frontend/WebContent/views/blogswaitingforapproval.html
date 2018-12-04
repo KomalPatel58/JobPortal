@@ -1,0 +1,23 @@
+<link href="resources/css/panel.css" rel="stylesheet">
+
+	<div class="panel panel-info panelcontainer">
+		<div class="panel-heading">
+			<b>List of Blogs Waiting For Approval</b>
+		</div>
+		<div class="panel-body fcolor">
+		<span style="color:red" ng-show="user.role!='ADMIN'">Access Denied</span>
+		<div class="container" ng-show="user.role=='ADMIN'">
+		<b ng-show="blogsWaitingForApproval.length==0">No Blogs Waiting For Approval </b>
+		<ul style="list-style:none;">
+		<li ng-repeat="blog in  blogsWaitingForApproval">
+		<a href="#/getblogapprovalform/{{blog.id}}"><b>Blog Title: </b>{{blog.blogTitle}}</a><br>
+		<b>Posted On:</b>{{blog.postedOn | date:'dd-MM-yyyy'}}<br>
+		<b>Posted By:</b>{{blog.postedBy.firstname}}&nbsp; {{blog.postedBy.lastname}}<!-- firstname and lastname of the user who posted the blog -->
+		<br>
+		<a href="#/getblogapprovalform/{{blog.id}}" class="link">View more details</a>
+		<hr>
+		</li>
+		</ul>
+		</div>
+	</div>
+</div>

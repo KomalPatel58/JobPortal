@@ -1,0 +1,77 @@
+                  
+              
+            <!--   <span style="color:red">{{error.errorMessage}}</span>
+<br>      
+                    	<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				 <h3 class="text-center white-text py-3"><i class="fa fa-user"></i> Login</h3>
+					<form style="border-style:dotted;border-width:3;border-color:red;"  >
+						
+				
+							<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-lg-4">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input class="cols-lg-6" type="email" class="form-control"  ng-model="user.email" placeholder="Enter your Email"/>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-md-4">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" ng-model="user.password" class="form-control"   placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+
+						
+
+						<div class="form-group ">
+							<a ng-click="login(user)" type="button"  class="btn btn-primary btn-lg btn-block login-button">Login</a>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+                     -->
+        
+             
+<head>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link href="resources/css/login.css" rel="stylesheet">
+</head>                     
+
+     
+	<div class="row">
+	   
+    	<div class="container" id="formContainer">
+			
+          <form class="form-signin" id="login" role="form">
+          <img class="profile-img"  src="resources/images/profile_photo.png"  alt="profile_photo">
+          <span style="color:red">{{error.message}}</span>
+<br>      
+			
+            <h3 class="form-signin-heading">Please Sign in</h3>
+            <a href="#" id="flipToRecover" class="flipLink">
+              <div id="triangle-topright"></div>
+            </a>
+           
+          <input type="email" class="form-control" name="loginEmail" id="loginEmail" ng-model="user.email" placeholder="Email address" required autofocus>
+           <!--  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span> -->
+          <input type="password" class="form-control" name="loginPass" id="loginPass" ng-model="user.password" placeholder="Password" required>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="login(user)">Sign in</button>
+            <h6><b>New User?</b> <a href="#/registration" >Sign Up here....</a></h6>
+          </form>
+    		
+          
+        </div> <!-- /container -->
+	</div>
+

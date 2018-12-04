@@ -1,0 +1,46 @@
+<link href="resources/css/notification.css" rel="stylesheet">
+<link href="resources/css/panel.css" rel="stylesheet">
+<div>
+<div class="panel panel-info panelcontainer">
+<div class="panel-heading">
+<table>
+<tr>
+<td><img src="http://localhost:8085/project2middleware/getimage?email={{blogPost.postedBy.email}}" alt="profilepic" height="90px" width="90px" style="border:2px solid;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<td align="left">
+<b>Blog Title </b> {{blogPost.blogTitle}}<br>
+<b>Posted On </b>{{blogPost.postedOn | date :'dd-MM-yyyy'}}<br>
+<b>Posted By </b>{{blogPost.postedBy.firstname}}&nbsp;{{blogPost.postedBy.lastname}}<br>
+<b>Email </b>{{blogPost.postedBy.email}}<br></td>
+<tr>
+</table>
+</div>
+<div class="panel-body fcolor">
+<div>
+	<p ng-bind-html="content">
+</div>
+<hr height="5px">
+likes{{blogPost.likes}}<br>
+<a ng-click="updateLikes(blogPost.id)"><span style="font-size:23px;" class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default'"></span></a><br>
+<textarea rows="3" cols="50" ng-model="commentTxt"></textarea><br>
+<button class="btn btn-info" ng-click="addBlogComment(blogPost,commentTxt)">Post Comment</button>
+<div ng-show="blogComment!=undefined">
+	{{blogComment.commentTxt}}<br>
+	{{blogComment.commentedBy.firstname}}&nbsp;{{blogComment.commentedBy.lastname}}
+	on {{blogComment.commentedOn | date:'dd/MM/yyyy'}}<br>
+	
+</div>
+<div>
+	<a ng-click="getAllBlogComments()" ng-hide="showComments" class="link">View Comments</a>
+	<a ng-click="getAllBlogComments()" ng-show="showComments">Hide Comments</a>
+	<ul ng-show="showComments">
+		<li ng-repeat="bc in blogComments">
+			{{bc.commentTxt}}<br>
+			<b>{{bc.commentedBy.firstname}}&nbsp;{{bc.commentedBy.lastname}} on
+			{{bc.commentedOn | date:'dd-MM-yyyy'}}</b><br>
+		</li>
+	</ul>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,29 @@
+<link href="resources/css/panel.css" rel="stylesheet">
+<div>
+	<div class="panel panel-info panelcontainer">
+		<div class="panel-heading">
+			<b>Friends</b>
+			
+		</div>
+		<div class="panel-body fcolor">
+
+			
+<ul style="list-style:none;">
+<li ng-repeat="user in friends">
+<table>
+						<tr>
+							<td><img
+								src="http://localhost:8085/project2middleware/getimage?email={{user.email}}"
+								alt="profilepic" height="90px" width="90px"
+								style="border: 2px solid lightblue;border-radius:3px;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td>
+{{user.email}}<br>
+{{user.firstname}}&nbsp;{{user.lastname}}<br>
+{{user.role}}<br>
+</td>
+						</tr>
+					</table>
+<hr>
+</li>
+</ul>
+</div>

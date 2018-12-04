@@ -1,0 +1,23 @@
+<link href="resources/css/panel.css" rel="stylesheet">
+<div>
+	<div class="panel panel-info panelcontainer">
+		<div class="panel-heading"><b>List of Suggested Users</b></div>
+		<div class="panel-body fcolor">
+			<ul style="list-style:none;">
+				<li ng-repeat="user in suggestedUsers">
+				<table>
+				<tr>
+					<td style="width:100px;margin-top:10px;" ><img src="http://localhost:8085/project2middleware/getimage?email={{user.email}}" alt="profilepic" height="90px" width="90px" style="border:2px solid;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>
+				{{user.email}}<br>
+				{{user.role}}<br>
+				{{user.firstname}}&nbsp;{{user.lastname}}<br>
+				<button class="sbutton btn btn-warning" ng-click="sendFriendRequest(user)">Send Friend Request</button>
+				</td>
+				</tr></table>
+				<hr>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

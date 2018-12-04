@@ -1,0 +1,33 @@
+<link href="resources/css/panel.css" rel="stylesheet">
+<div >
+
+	<div class="panel panel-info panelcontainer" >
+		<div class="panel-heading"><b>Job Details</b> 
+		<input type="text" ng-model="searchTxt" placeholder="Search Jobs.." > <button type="submit"><i class="fa fa-search"></i></button>
+		</div>
+		
+		<div class="panel-body fcolor">
+			<ul style="list-style: none;">
+             <li ng-repeat="job in jobs | orderBy :'-postedOn' | filter:searchTxt">
+             <b>Job Title:</b>{{job.jobTitle}}<br>
+             <b>Posted On:</b>{{job.postedOn | date : 'MM-dd-yyyy'}}<br>
+             <b>Skills Required:</b>{{job.skillsRequired}}<br>
+          
+             <a class="show" ng-click="showDetails(job.id)" ng-hide="isClicked && jobId==job.id">Show more details</a>
+          
+             <div ng-show="isClicked && jobId==job.id">
+             <b>Job Description:</b>{{job.jobDescription}}<br>
+             <b>Location : </b>{{job.location}}<br>
+             <b>Salary : </b>{{job.salary}}<br>
+             <b>Company Name: </b>{{job.companyName}}<br>
+             <a class="show" ng-click="showDetails(job.id)" ng-show="isClicked && jobId==job.id">Hide more details</a>
+             <button class="btn btn-primary" style="width:85px;"
+									ng-click="applyJob(job.id)">Apply</button>
+             </div>
+             <hr>
+             </li>
+             
+			</ul>
+		</div>
+	</div>
+</div>

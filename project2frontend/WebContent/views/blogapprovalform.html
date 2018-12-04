@@ -1,0 +1,21 @@
+<link href="resources/css/panel.css" rel="stylesheet">
+<div>
+<div  ng-show="user.role=='ADMIN'">
+<div class="panel panel-info panelcontainer">
+	
+<div class="panel-heading" style="text-align:left;">
+<span style="color:red" ng-show="user.role!='ADMIN'">Access Denied</span>
+	
+<b>Blog Title: </b> {{blogPost.blogTitle}}<br>
+<b>Posted On: </b> {{blogPost.postedOn | date:'dd-mm-yyyy'}}<br>
+<b>Posted By: </b> {{blogPost.postedBy.firstname}}&nbsp;{{blogPost.postedBy.lastname}} <br>
+<b>Email: </b>{{blogPost.postedBy.email}}<br>
+</div>
+<div class="panel-body fcolor">
+<b>Blog Content:</b><br><br>{{blogPost.blogContent}}<br><br>
+<button ng-click="approve(blogPost)" class="btn btn-info">Approve</button>&nbsp;<button ng-click="showTxtForRejectionReason()" class="btn btn-danger">Reject</button>
+<div ng-show="isRejected"><input type="text" ng-model="rejectionReason"><button ng-click="reject(blogPost,rejectionReason)" class="btn btn-info" type="submit">Submit</button></div>
+</div>
+</div>
+</div>
+</div>

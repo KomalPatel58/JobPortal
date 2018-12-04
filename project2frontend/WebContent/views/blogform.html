@@ -1,0 +1,35 @@
+<link href="resources/css/registration.css" rel="stylesheet">
+
+<header class="heading"> Add Blog <img src="resources/images/blog.jpg" height="45px" width="100px"></header><hr></hr>
+<span style="color:red">{{error.errorMessage}}</span>
+
+<form>
+
+
+	 <!--- For Name---->
+         <div class="col-sm-12">
+             <div class="row">
+			     <div class="col-xs-4">
+ 					<label class="longlabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blog Title :</label> </div>
+		        	 <div class="col-xs-8">
+		             <input type="text" ng-model="blog.blogTitle" placeholder="Enter Blog Title" class="form-control">
+            	 </div>
+		      </div>
+		 </div>
+		 
+		 <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+                     <label class="longlabel">Blog Content :</label></div>
+				<div class ="col-xs-8">	 
+		             <textarea ng-model="blog.blogContent" placeholder="Enter Blog Content" class="form-control"></textarea>
+                </div>
+		     </div>
+		 </div>
+		 
+		  <div class="col-sm-12">
+		         <div class="sbutton btn btn-warning" ng-click="addBlog(blog)">Add Blog</div>
+		   </div>
+		 		 <br><br>
+		</form>
+
