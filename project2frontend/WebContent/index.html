@@ -65,7 +65,7 @@
                      		</ul>
                      	</li>
                      	<li ng-show="user.role=='ADMIN'"><a href="#/getalljobapplications" >Job Application</a></li>
-                     	<li class=dropdown><a  href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="user.role!=undefined">
+                     	<li class=dropdown><a  href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="user.role!=undefined && user.role!='ADMIN' ">
                      	JobNotification<span class="rw-number-notification" ng-if="jobNotificationCount>0">{{jobNotificationCount}}</span></a>
                      		<ul class="dropdown-menu">
                      		<span class="dropdown-content">

@@ -2,6 +2,7 @@
  * BlogCtrl
  */
 app.controller('BlogCtrl',function($scope,BlogService,$location,$rootScope,$routeParams){
+
 	$scope.addBlog=function(blog){
 		BlogService.addBlog(blog).then(function(response){
 			alert('Blog details inserted successfully and it is waiting for approval')

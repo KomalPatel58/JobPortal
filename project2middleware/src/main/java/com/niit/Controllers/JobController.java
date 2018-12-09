@@ -67,7 +67,7 @@ public class JobController {
 			ErrorClazz errorClazz=new ErrorClazz(5,"Unauthorized access...");
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);
 		}
-		List<Job> jobs=jobDao.getAllJobs();
+		List<Job> jobs=jobDao.getAllJobs(email);
 		return new ResponseEntity<List<Job>>(jobs,HttpStatus.OK);
 	}
 	

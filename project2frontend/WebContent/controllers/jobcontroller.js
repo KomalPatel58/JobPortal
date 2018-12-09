@@ -18,6 +18,17 @@ app.controller('JobCtrl',function($scope,JobService,$location){
 				})
 	}
 	
+	function getAll()
+	{
+		JobService.getAllJobs().then(function(response){
+			$scope.jobs=response.data
+		},function(response){
+			if(response.status=401){
+				$location.path('/login')
+			}
+			
+		})		
+	}
 	/*$scope.getAllJobs=function(){
 		
 		
@@ -43,7 +54,7 @@ app.controller('JobCtrl',function($scope,JobService,$location){
 		JobService.addJobApplication(jobId).then(
 				function(response){
 					alert('Job Details PostedSuccessfully..')
-					$location.path('/getalljobs')
+					getAll();
 					
 				},function(response){
 					$scope.error=response.data

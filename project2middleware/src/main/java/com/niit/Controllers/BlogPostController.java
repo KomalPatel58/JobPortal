@@ -173,6 +173,7 @@ public class BlogPostController {
 			notification.setApprovalStatus("Rejected");
 			notification.setBlogTitle(blogPost.getBlogTitle());
 			notification.setUserToBeNotified(blogPost.getPostedBy());
+			notification.setRejectionReason(rejectionReason);
 			notificationDao.addNotification(notification);
 			blogPostDao.deleteBlogPost(blogPost);
 			return new ResponseEntity<Void>(HttpStatus.OK);

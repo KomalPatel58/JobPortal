@@ -52,7 +52,7 @@ public class DBConfiguration {
 		BasicDataSource dataSource=new BasicDataSource();
 		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("komal");
+		dataSource.setUsername("system");
 		dataSource.setPassword("komal");
 		return dataSource;
 		

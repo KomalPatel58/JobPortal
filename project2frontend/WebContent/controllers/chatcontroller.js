@@ -1,13 +1,15 @@
 app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
-    alert('entering chat controller')
+   // alert('entering chat controller')
     $scope.chats = [];
     $scope.stompClient = ChatService.stompClient;
     $scope.users=[]
     $scope.$on('sockConnected', function(event, frame) {
-    	alert('connected successfully..')
+    	/*alert('connected successfully..')*/
+    	//alert('=1')
         $scope.userName=$rootScope.user.firstname;
         alert($scope.userName + ' connects with websocket');
         $scope.stompClient.subscribe("/topic/join", function(message) {
+        	//alert('=2')
             user = JSON.parse(message.body);
             console.log(user)
             alert(message.body)
@@ -15,7 +17,8 @@ app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
                 $scope.addUser(user);
                 $scope.latestUser = user;
                 $scope.$apply();
- 		alert($scope.latestUser + ' has joined the chat ')
+ 		/*alert($scope.latestUser + ' has joined the chat ')*/
+                //alert('=3')
                 $('#joinedChat').fadeIn(500).delay(10000).fadeOut(500);
             }
             
@@ -23,8 +26,9 @@ app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
         
   
         $scope.stompClient.subscribe('/app/join/'+$scope.userName, function(message) {
-            alert(message)
-	    alert(message.body)
+           /* alert(message)
+	    alert(message.body)*/
+        	//alert('=4')
             $scope.users = JSON.parse(message.body);
         	
             $scope.$apply();
@@ -34,7 +38,7 @@ app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
 
     $scope.sendMessage = function(chat) {
         chat.from = $scope.userName;
-      
+      //alert('=5')
         $scope.stompClient.send("/app/chat", {}, JSON.stringify(chat));
         $rootScope.$broadcast('sendingChat', chat);
         $scope.chat.message = '';
@@ -42,33 +46,30 @@ app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
     };
 
     $scope.capitalize = function(str) {
+    	//alert('=6')
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
  
     $scope.addUser = function(user) {
+    	//alert('=7')
         $scope.users.push(user);
         $scope.$apply();
     };
- 
-    
-    
-    
-    
     
     
     $scope.$on('sockConnected', function(event, frame) {
         
-  
+    	//alert('=8')
         $scope.user=$rootScope.user.firstname;
        
         $scope.stompClient.subscribe( "/queue/chats/"+$scope.userName, function(message) {
-        	
+        	//alert("bd")
             $scope.processIncomingMessage(message, false);
         });
         
         
         $scope.stompClient.subscribe("/queue/chats", function(message) {
-        	
+        	//alert('=9')
             $scope.processIncomingMessage(message, true);
         });
         
@@ -76,6 +77,7 @@ app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
     });
 
     $scope.$on('sendingChat', function(event, sentChat) {
+    	//alert('=10')
         chat = angular.copy(sentChat);
         chat.from = 'Me';
         chat.direction = 'outgoing';
@@ -83,16 +85,19 @@ app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
     });
 
     $scope.processIncomingMessage = function(message, isBroadcast) {
+    	//alert('=11')
         message = JSON.parse(message.body);
         message.direction = 'incoming';
 	message.broadcast=isBroadcast
         if(message.from != $scope.userName) {
+        	alert('=12')
         	$scope.addChat(message);
             $scope.$apply(); // since inside subscribe closure
         }
     };
     
     ChatService.users.then(function(response) {
+    	//alert('=13')
 		$scope.users = response.data;
 		console.log("friend status " + JSON.stringify($scope.users));
 
@@ -108,6 +113,7 @@ app.controller('ChatCtrl',  function($rootScope ,$scope, ChatService) {
 	});
  
     $scope.addChat = function(chat) {
+    	//alert('=14')
         $scope.chats.push(chat);
     };
  
